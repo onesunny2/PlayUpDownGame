@@ -32,9 +32,12 @@ class MainViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         
         guard let vc = sb.instantiateViewController(withIdentifier: TryGameViewController.identifier) as? TryGameViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
         
-        present(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+        present(nav, animated: true)
     }
     
     @IBAction func viewTapGuesture(_ sender: UITapGestureRecognizer) {

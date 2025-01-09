@@ -18,9 +18,24 @@ class TryGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        view.backgroundColor = .mainBg
+
+        setNavigationItem()
     }
 
+    @objc
+    func dismissFullScreen() {
+        dismiss(animated: true)
+    }
 }
 
+// MARK: - View UI 구성
+extension TryGameViewController {
+    
+    func setNavigationItem() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissFullScreen))
+        navigationItem.rightBarButtonItem?.tintColor = .black
+    }
+}
