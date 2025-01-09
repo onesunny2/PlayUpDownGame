@@ -8,13 +8,18 @@
 import UIKit
 
 class NumberCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "NumberCollectionViewCell"
 
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var numberLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        DispatchQueue.main.async {
+            self.backgroundImageView.layer.cornerRadius = self.backgroundImageView.frame.width / 2
+        }
     }
 
 }

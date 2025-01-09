@@ -11,6 +11,14 @@ class UpdownGame {
     
     static let gamename = "UP DOWN"
     var setNum: Int
+    var numList: [String] {
+        var stringList: [String] = []
+        for num in 1...setNum {
+            stringList.append(String(num))
+        }
+        
+        return stringList
+    }
     var countNum: Int
     var isSelected: Bool = false
     

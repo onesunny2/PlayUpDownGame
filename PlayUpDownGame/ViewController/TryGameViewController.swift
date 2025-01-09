@@ -29,8 +29,18 @@ class TryGameViewController: UIViewController {
         configTitles()
         configButton()
         
-//        numberCollectionView.delegate = self
-//        numberCollectionView.dataSource = self
+        configCollectionView()
+    }
+    
+    func configCollectionView() {
+        
+        numberCollectionView.backgroundColor = .clear
+        
+        numberCollectionView.delegate = self
+        numberCollectionView.dataSource = self
+        
+        let xib = UINib(nibName: NumberCollectionViewCell.identifier, bundle: nil)
+        numberCollectionView.register(xib, forCellWithReuseIdentifier: NumberCollectionViewCell.identifier)
     }
 
     @objc
@@ -39,18 +49,24 @@ class TryGameViewController: UIViewController {
     }
 }
 
-// MARK: - CollectionView 설정
-//extension TryGameViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    
-//    // updownGame내부에 프로퍼티 만들어서 거기에다가 앞에서 입력한 숫자 받도록하기
-////    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-////        <#code#>
-////    }
-////    
-////    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-////        <#code#>
-////    }
-//}
+ // MARK: - CollectionView 설정
+extension TryGameViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+     // updownGame내부에 프로퍼티 만들어서 거기에다가 앞에서 입력한 숫자 받도록하기
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return updownGame.setNum
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberCollectionViewCell.identifier, for: indexPath) as? NumberCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.backgroundImageView.backgroundColor = updownGame.isSelected ? .black : .white
+        
+        cell.numberLabel.text = updownGame.numList[indexPath.item]
+        
+        return cell
+    }
+}
 
 // MARK: - View UI 구성
 extension TryGameViewController {
