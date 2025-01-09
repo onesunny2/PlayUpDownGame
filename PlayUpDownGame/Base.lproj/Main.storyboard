@@ -114,13 +114,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWE-vv-mod">
-                                <rect key="frame" x="60" y="91" width="273" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="60" y="59" width="273" height="49"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bqc-zm-AL5">
-                                <rect key="frame" x="0.0" y="215" width="393" height="400"/>
+                                <rect key="frame" x="0.0" y="199" width="393" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="Rcp-9s-2AV"/>
@@ -143,12 +143,15 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfd-7P-80l">
-                                <rect key="frame" x="60" y="751" width="273" height="35"/>
+                                <rect key="frame" x="60" y="736" width="273" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FkB-ua-Uwu"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R37-DX-q8B">
-                                <rect key="frame" x="175.66666666666666" y="124" width="42" height="21"/>
+                                <rect key="frame" x="175.66666666666666" y="108" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -157,7 +160,7 @@
                         <viewLayoutGuide key="safeArea" id="OfJ-Al-NrK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OWE-vv-mod" firstAttribute="top" secondItem="OfJ-Al-NrK" secondAttribute="top" constant="32" id="7ep-R4-aaI"/>
+                            <constraint firstItem="OWE-vv-mod" firstAttribute="top" secondItem="OfJ-Al-NrK" secondAttribute="top" id="7ep-R4-aaI"/>
                             <constraint firstItem="Bqc-zm-AL5" firstAttribute="leading" secondItem="OfJ-Al-NrK" secondAttribute="leading" id="7xr-fG-fnh"/>
                             <constraint firstItem="Bqc-zm-AL5" firstAttribute="top" secondItem="R37-DX-q8B" secondAttribute="bottom" constant="70" id="E9B-1m-cIL"/>
                             <constraint firstItem="R37-DX-q8B" firstAttribute="centerX" secondItem="OWE-vv-mod" secondAttribute="centerX" id="Iab-C3-ics"/>
@@ -167,7 +170,7 @@
                             <constraint firstItem="OfJ-Al-NrK" firstAttribute="trailing" secondItem="Bqc-zm-AL5" secondAttribute="trailing" id="jZi-gU-f7C"/>
                             <constraint firstItem="Sfd-7P-80l" firstAttribute="leading" secondItem="OfJ-Al-NrK" secondAttribute="leading" constant="60" id="kud-Zs-ZWn"/>
                             <constraint firstItem="OfJ-Al-NrK" firstAttribute="trailing" secondItem="Sfd-7P-80l" secondAttribute="trailing" constant="60" id="r9n-Dl-RVu"/>
-                            <constraint firstItem="R37-DX-q8B" firstAttribute="top" secondItem="OWE-vv-mod" secondAttribute="bottom" constant="12" id="xew-UO-OKj"/>
+                            <constraint firstItem="R37-DX-q8B" firstAttribute="top" secondItem="OWE-vv-mod" secondAttribute="bottom" id="xew-UO-OKj"/>
                         </constraints>
                     </view>
                     <connections>
