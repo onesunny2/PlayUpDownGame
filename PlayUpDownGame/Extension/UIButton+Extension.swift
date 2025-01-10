@@ -9,6 +9,7 @@ import UIKit
 
 extension UIButton {
     
+    // TODO: isEnabled = false 일 때, 글자색 커스텀 방법?
     func defaultButtonUI(_ title: String, _ bgcolor: UIColor) {
         
         var container = AttributeContainer()

@@ -16,30 +16,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-5f-7xJ">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTk-mR-hw9">
                         <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdx-ks-sZN">
-                        <rect key="frame" x="36" y="46.666666666666664" width="42" height="20.999999999999993"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="fDH-PI-yBe"/>
             <constraints>
-                <constraint firstItem="Cdx-ks-sZN" firstAttribute="centerY" secondItem="bhJ-Ao-Tuk" secondAttribute="centerY" id="7aF-eD-ZsN"/>
-                <constraint firstItem="Cdx-ks-sZN" firstAttribute="centerX" secondItem="bhJ-Ao-Tuk" secondAttribute="centerX" id="Ahq-9c-crG"/>
-                <constraint firstItem="WFw-5f-7xJ" firstAttribute="top" secondItem="bhJ-Ao-Tuk" secondAttribute="top" id="CGZ-RA-2bj"/>
-                <constraint firstItem="WFw-5f-7xJ" firstAttribute="leading" secondItem="bhJ-Ao-Tuk" secondAttribute="leading" id="IBE-CG-MzB"/>
-                <constraint firstAttribute="bottom" secondItem="WFw-5f-7xJ" secondAttribute="bottom" id="xac-sb-S42"/>
-                <constraint firstAttribute="trailing" secondItem="WFw-5f-7xJ" secondAttribute="trailing" id="zd5-bm-Uaq"/>
+                <constraint firstAttribute="trailing" secondItem="lTk-mR-hw9" secondAttribute="trailing" id="5r4-7e-H6J"/>
+                <constraint firstItem="lTk-mR-hw9" firstAttribute="leading" secondItem="bhJ-Ao-Tuk" secondAttribute="leading" id="BJx-aA-UR2"/>
+                <constraint firstAttribute="bottom" secondItem="lTk-mR-hw9" secondAttribute="bottom" id="SFQ-MI-wXv"/>
+                <constraint firstItem="lTk-mR-hw9" firstAttribute="top" secondItem="bhJ-Ao-Tuk" secondAttribute="top" id="iLY-BU-eUS"/>
             </constraints>
             <size key="customSize" width="114" height="114"/>
             <connections>
-                <outlet property="backgroundImageView" destination="WFw-5f-7xJ" id="vH1-Od-Mp5"/>
-                <outlet property="numberLabel" destination="Cdx-ks-sZN" id="e4U-DR-UW6"/>
+                <outlet property="numberButton" destination="lTk-mR-hw9" id="Sb2-oR-HfU"/>
             </connections>
             <point key="canvasLocation" x="178.62595419847327" y="11.267605633802818"/>
         </collectionViewCell>
