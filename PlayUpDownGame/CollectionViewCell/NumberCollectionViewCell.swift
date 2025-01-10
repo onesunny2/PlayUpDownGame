@@ -11,15 +11,33 @@ class NumberCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "NumberCollectionViewCell"
 
-    @IBOutlet var backgroundImageView: UIImageView!
-    @IBOutlet var numberLabel: UILabel!
+    @IBOutlet var numberButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+ 
+    }
+    
+    func configCell(num: String) {
+        numberButton.backgroundColor = .white
+        numberButton.setTitle(num, for: .normal)
+        numberButton.tintColor = .black
         
         DispatchQueue.main.async {
-            self.backgroundImageView.layer.cornerRadius = self.backgroundImageView.frame.width / 2
+            self.numberButton.layer.cornerRadius = self.numberButton.frame.width / 2
         }
+    }
+    
+    func selectToggle() {
+        print(#function)
+        numberButton.backgroundColor = .black
+        numberButton.tintColor = .white
+    }
+    
+    func deselectToggle() {
+        
+        numberButton.backgroundColor = .white
+        numberButton.tintColor = .black
     }
 
 }
