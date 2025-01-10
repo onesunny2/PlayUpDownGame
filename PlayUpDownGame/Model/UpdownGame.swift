@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /*
  클래스 사용 목적: 네이밍, 숫자 및 배열 관리, 선택 여부 등 전체적인 게임 설정에 필요한
@@ -18,37 +19,52 @@ import Foundation
 class UpdownGame {
     
     static let gamename = "UP DOWN"
-    var randomNum: Int
-    var setNum: Int
-    var selectedNum: Int
-    var numList: [String] = []
-    var newNumList: [String] = []
-    var countNum: Int
-    var isSelected: Bool = false
-    var filteringList: [Int] = []
     
-    func checkAnswer(selected num: Int) -> [String] {
-        
+    var setNum: Int
+    var countNum: Int
+    var selectedNum: Int
+    var cellList: [String] = []
+    var isSelected: Bool = false
+    var randomNum: Int = 0
+    var entireNumList: [String] = []
+    
+    func checkAnswer(selected num: Int, _ label: UILabel) {
+
         if randomNum > num {
-            // UP
-            filteringList = Array(randomNum + 1...setNum)
+
+            if let index = cellList.firstIndex(of: String(num)) {
+                cellList.removeSubrange(0...index)
+            }
+            
+            print(cellList)
+            
+            label.commonDesign("UP", bool: false)
+
         } else if randomNum < num {
-            // Down
-            filteringList = Array(1...randomNum - 1)
+
+            if let index = cellList.firstIndex(of: String(num)) {
+                cellList.removeSubrange(index...)
+            }
+            
+            print(cellList)
+            
+            label.commonDesign("DOWN", bool: false)
+            
+            print("DOWN")
         } else if randomNum == num {
-            filteringList = [num]
+            label.commonDesign("GOOD", bool: false)
         }
-        
-        return filteringList.map { String($0) }
+
     }
     
-    init(randomNum: Int, setNum: Int, countNum: Int, selectedNum: Int) {
-        self.randomNum = randomNum
+    init(setNum: Int, countNum: Int, selectedNum: Int) {
         self.setNum = setNum
         self.countNum = countNum
         self.selectedNum = selectedNum
     }
 }
+
+
 
 /*
  

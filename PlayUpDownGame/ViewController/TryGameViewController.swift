@@ -7,12 +7,6 @@
 
 import UIKit
 
-/*
- 간만에 남기는 메모...ㅠ^
- 숫자를 선택하고 결과 확인하기를 누르는 순간 계속 outofrange로 앱이 터지는데,
- 계속 붙잡아봤는데 해결이 안되어서, 오늘 다시 생각해보고 질문 드리겠습니다....
- */
-
 class TryGameViewController: UIViewController {
 
     static let identifier = "TryGameViewController"
@@ -22,7 +16,7 @@ class TryGameViewController: UIViewController {
     @IBOutlet var numberCollectionView: UICollectionView!
     @IBOutlet var resultButton: UIButton!
     
-    let updownGame = UpdownGame(randomNum: 0, setNum: 0, countNum: 0, selectedNum: 0)
+    let updownGame = UpdownGame(setNum: 0, countNum: 0, selectedNum: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +25,13 @@ class TryGameViewController: UIViewController {
         
         updownGame.randomNum = Int.random(in: 1...updownGame.setNum)
         
-        print(updownGame.randomNum)
+        let array = Array(1...updownGame.setNum)
+        updownGame.entireNumList = array.map { String($0) }
+        updownGame.cellList = updownGame.entireNumList
         
-        for num in 1...updownGame.setNum {
-            updownGame.numList.append(String(num))
-        }
-
+        print(updownGame.setNum, updownGame.randomNum)
+        print(updownGame.entireNumList, updownGame.cellList)
+        
         setNavigationItem()
         configTitles()
         configButton()
@@ -46,7 +41,7 @@ class TryGameViewController: UIViewController {
     }
     
     @IBAction func resultButtonTapped(_ sender: UIButton) {
-        updownGame.numList = updownGame.checkAnswer(selected: updownGame.selectedNum)
+        updownGame.checkAnswer(selected: updownGame.selectedNum, titleLabel)
         
         numberCollectionView.reloadData()
     }
@@ -94,13 +89,15 @@ extension TryGameViewController: UICollectionViewDelegate, UICollectionViewDataS
     
      // updownGame내부에 프로퍼티 만들어서 거기에다가 앞에서 입력한 숫자 받도록하기
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return updownGame.setNum
+        return updownGame.cellList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberCollectionViewCell.identifier, for: indexPath) as? NumberCollectionViewCell else { return UICollectionViewCell() }
  
-        let num = updownGame.numList[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NumberCollectionViewCell.identifier, for: indexPath) as? NumberCollectionViewCell else { return UICollectionViewCell() }
+        
+        let num = updownGame.cellList[indexPath.item]
+        
             cell.configCell(num: num)
         
         return cell
@@ -115,7 +112,9 @@ extension TryGameViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.selectToggle()
         
         updownGame.countNum += 1
-        updownGame.selectedNum = indexPath.item
+        if let intNum = Int(updownGame.cellList[indexPath.row]) {
+            updownGame.selectedNum = intNum
+        }
         
         let countText = "시도 횟수: \(updownGame.countNum)"
         tryCountLabel.commonDesign(countText)
